@@ -1,0 +1,87 @@
+<html lang="en" ng-app="app" ng-csp>
+	<head>
+		<title>Graphite Notifications - Options</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+	</head>
+	<body ng-controller="AppCtrl">
+		<div class="content">
+			<h1>Graphite server</h1>
+
+			<div>
+				<div>
+					<p>
+						<label>Url: </label>
+						<input type="text" name="server" ng-model="graphite.url" placeholder="Graphite server url..."/>
+					</p>
+					<p>
+						<label></label>
+						<small>http(s)://graphite.example.com/ or http(s)://123.123.123.123:8080/</small>
+					</p>
+					<p>
+						<label>Enabled: </label>
+						<input type="checkbox" ng-click="utils.serverTest()" ng-model="graphite.enabled" ng-true-value="true" ng-false-value="false"/>
+
+					</p>
+
+					<p class="error" ng-if="graphite.url.length>1 && ui.serverError">
+						Cant connect to the graphit server! Check your URL: <a href="{{graphite.url}}render"  target="_blank">{{graphite.url}}render</a>
+						<small>Clicking on the link you should see image with text "No Data"...</small>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<h1>Notifications</h1>
+			<div class="search">
+				<p>
+					<label>Search: </label>
+					<input type="text" name="" ng-model="search" placeholder="Keywords..."/>
+				</p>
+			</div>
+			<div ng-if="!notifications.length" class="notification">
+				<p>
+					Setup new notification by clicking on "Add notification" button...
+				</p>
+			</div>
+			<div ng-repeat="notification in notifications | filter:search">
+				<!-- {{notification}} -->
+				<div class="notification">
+					<notif notification="notification"></notif>
+					<p>
+						<label></label>
+						<button ng-click="utils.removeNotification($index)">
+							Remove
+						</button>
+					</p>
+				</div>
+
+			</div>
+			<div class="buttons">
+				<p>
+					<button ng-click="utils.addNotification()">
+						Add notification
+					</button>
+					<button ng-click="utils.removeAll()">
+						Remove notifications
+					</button>
+
+				</p>
+			</div>
+		</div>
+		<div class="content">
+			<h1>How to</h1>
+			<p>
+				Nothing here yet :(
+			</p>
+		</div>
+
+		<script src="../background/graphite.js"></script>
+
+		<script src="vendor/angular/angular.js"></script>
+		<script src="vendor/angular/angular-sanitize.js"></script>
+
+		<script src="app.js"></script>
+		<script src="modules/ngStorage.js"></script>
+		<script src="directives/directives.js"></script>
+	</body>
+</html>

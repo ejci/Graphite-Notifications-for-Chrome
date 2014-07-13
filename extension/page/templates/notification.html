@@ -1,0 +1,119 @@
+<div ng-if="notification.type">
+	<p>
+		<label>Name: </label>
+		<span ng-show="notification.title && notification.metric" class="title">{{notification.title +' ' +notification.metric}}</span>
+	</p>
+</div>
+<p>
+	<label>Type: </label>
+	<select ng-model="notification.type" ng-change="change()" ng-options="type.value as type.name for type in types"></select>
+</p>
+<div ng-if="notification.type">
+	<p>
+		<label>Metric: </label>
+		<input type="text" name="metric" ng-model="notification.metric" placeholder="Metric name: my.sample.metric.name"/>
+
+	</p>
+	<p>
+		<label>Name: </label>
+		<input type="text" name="title" ng-model="notification.title" placeholder="Notification title"/>
+
+	</p>
+
+	<p ng-if="notification.type=='change'">
+		<label>Interval: </label>
+		<select ng-model="notification.interval" ng-options="interval.value as interval.name for interval in intervals"></select>
+		</select>
+		<select ng-model="notification.aggregation" ng-options="aggregation.value as aggregation.name for aggregation in aggregations" ng-model="notification."></select>
+	</p>
+	<p ng-if="notification.type=='check'">
+		<label>Interval: </label>
+		<select ng-model="notification.periodicInterval" ng-options="periodicInterval.value as periodicInterval.name for periodicInterval in periodicIntervals"></select>
+	</p>
+
+	<p>
+		<label>Priotity: </label>
+		<select ng-model="notification.priority" ng-options="priority.value as priority.name for priority in priorities"></select>
+
+	</p>
+	<p>
+		<label>Color: </label>
+		<select ng-model="notification.color" ng-options="color.value as color.name for color in colors"></select>
+		<img src="{{iconUrl()}}" class="notif-icon">
+
+	</p>
+	<p ng-if="notification.type=='change'">
+		<label>Change: </label>
+		<select ng-model="notification.change" ng-options="change.value as change.name for change in changes"></select>
+
+	</p>
+	<p ng-if="notification.type=='change'">
+		<label>Treshold: </label>
+		<input ng-model="notification.treshold" type="number" name="title" placeholder="Treshold %"/>
+		&nbsp;%
+
+	</p>
+	<p ng-if="notification.type=='change'">
+		<label>Include chart: </label>
+		<input ng-model="notification.chart" ng-true-value="true" ng-false-value="false" type="checkbox"/>
+	</p>
+	<p ng-if="notification.type=='check'">
+		<label>Include chart: </label>
+		<input ng-model="notification.chart" disabled ng-true-value="true" ng-false-value="false" type="checkbox" checked/>
+	</p>
+
+	<p ng-if="notification.chart">
+		<label>Chart interval: </label>
+		<select  ng-model="notification.chartInterval" ng-options="chartInterval.value as chartInterval.name for chartInterval in chartIntervals"></select>
+	</p>
+
+	<p>
+	<label>Button: </label>
+	<input ng-model="notification.button" ng-true-value="true" ng-false-value="false" type="checkbox"/>
+
+	</p>
+	<p ng-if="notification.button">
+	<label>Button name: </label>
+	<input ng-model="notification.buttonName" type="text" name="metric" placeholder=""/>
+
+	</p>
+	<p ng-if="notification.button">
+	<label>Button URL: </label>
+	<input ng-model="notification.buttonUrl" type="text" name="title" placeholder=""/>
+
+	</p>
+	
+	<p>
+		<label>Enabled: </label>
+		<input ng-model="notification.enabled" ng-true-value="true" ng-false-value="false" type="checkbox"/>
+	</p>
+	<p ng-if="notification.lastRun">
+		<label>Last run: </label>
+		<span>{{notification.lastRun | date:'yyyy.dd.MM HH:MM:ss'}}</span>
+	</p>
+	<p class="error" ng-if="notification.error" ng-bind="notification.error"></p>
+
+	<div class="example">
+		<div class="header">
+			<div class="icon">
+				<img src="{{iconUrl()}}" width="80" height="80"/>
+			</div>
+			<div class="message" ng-if="notification.title && notification.type=='change'">
+				<span class="title" ng-bind="notification.title"></span>
+				<span class="text">Current count: 10</span>
+				<span class="contextMessage">Last count: 9</span>
+			</div>
+			<div class="message" ng-if="notification.title && notification.type=='check'">
+				<span class="title" ng-bind="notification.title"></span>
+				<span class="text" ng-bind="notification.metric"></span>
+				<span class="contextMessage"></span>
+			</div>
+		</div>
+		<div class="chart" ng-if="notification.chart">
+			<img src="../images/chart.png" width="360" height="240"/>
+		</div>
+		<div class="button" ng-if="notification.button">
+			<a class="text" href="notification.buttonUrl" target="_blank" ng-bind="notification.buttonName"></a>
+		</div>
+	</div>
+</div>

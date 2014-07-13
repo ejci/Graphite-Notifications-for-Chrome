@@ -1,0 +1,167 @@
+html, body {
+	height:100%;
+	width:100%;
+	padding:0;
+	margin:0;
+}
+body {
+	font-size:75%;
+	font-family:"Lucida Grande";
+	color:#333;
+}
+h1 {
+	font-size:1.5em;
+	font-weight:normal;
+	line-height:1;
+	padding-bottom:15px;
+	border-bottom:1px solid #eee;
+}
+h2 {
+	font-size:1.2em;
+	font-weight:normal;
+	line-height:1;
+	padding-bottom:12px;
+	border-bottom:1px solid #eee;
+}
+small {
+	color:#666;
+}
+select {
+	width:120px;
+}
+p {
+	height:27px;
+	vertical-align:middle;
+}
+input[type="text"], input[type="number"] {
+	width:400px;
+	height:26px;
+	border:1px solid #eee;
+}
+label {
+	width:100px;
+	text-align:right;
+	display:inline-block;
+}
+.content {
+	padding:20px;
+	width:auto;
+}
+.notification {
+	position:relative;
+	border-top:1px dashed #eee;
+}
+.search {
+	margin-bottom:20px;
+}
+.buttons {
+	margin-top:20px;
+	border-top:1px dashed #eee;
+}
+.error{
+	color: #c00;
+}
+.title {
+	font-weight:bold;
+	font-size:1.1em;
+}
+.notif-icon {
+	width:20px;
+	height:20px;
+	padding:0;
+	margin:0;
+	vertical-align:middle;
+}
+pre.log {
+	width:100%;
+}
+/**
+ * 	Example notification
+ */
+.example {
+	font-size:12px;
+	font-family:"Lucida Grande";
+	position:absolute;
+	top:20px;
+	right:0;
+	width:360px;
+	min-height:80px;
+	box-shadow:0 0 1em #999;
+	border:1px solid #aaa;
+}
+.example .header {
+	width:360px;
+	height:80px;
+	position:relative;
+}
+.example .icon {
+	position:absolute;
+	left:0;
+	top:0;
+	margin:0;
+	padding:0;
+	background-color:#eee;
+	display:inline-block;
+	overflow:hidden;
+}
+.example .icon img {
+}
+.example .message {
+	position:absolute;
+	right:0;
+	top:0;
+	width:280px;
+	height:80px;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+.example .message span {
+	display:block;
+}
+.example .message .title {
+	padding-left:20px;
+	padding-right:20px;
+	font-weight:bold;
+	line-height:30px;
+}
+.example .message .text {
+	padding-left:20px;
+	padding-right:20px;
+	line-height:20px;
+}
+.example .message .contextMessage {
+	padding-left:20px;
+	padding-right:20px;
+	line-height:30px;
+	color:#666;
+}
+.example .chart {
+	margin:0;
+	width:360px;
+	height:240px;
+	padding:0;
+	background-color:#666;
+	display:block;
+	overflow:hidden;
+}
+.example .button {
+	height:40px;
+	width:360px;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	border-top:1px solid #aaa;
+	cursor:pointer;
+}
+.example .button .text {
+	width:320px;
+	padding-left:20px;
+	padding-right:20px;
+	line-height:40px;
+	text-decoration: none;
+	color: #333;
+}
+.example .button:hover {
+	background-color:#eee;
+}

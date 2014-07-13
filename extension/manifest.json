@@ -1,0 +1,19 @@
+{
+	"name": "Graphite Notifications",
+	"description": "Graphite Notifications",
+	"version": "0.0.0.1",
+	"permissions": ["notifications", "*://*/*"],
+	"background": {
+		"scripts": ["background/background.js", "background/timer.js", "background/graphite.js", "background/lib/numeral.js"]
+	},
+	"options_page": "page/app.html",
+	"manifest_version": 2,
+	"content_security_policy": "img-src *; object-src 'self'; script-src 'self' 'unsafe-eval'",
+	"homepage_url": "http://lab.ejci.net/",
+	"icons": {
+		"16": "16.png",
+		"48": "48.png",
+		"128": "128.png",
+		"256": "256.png"
+	}
+}
